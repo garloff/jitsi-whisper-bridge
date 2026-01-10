@@ -183,7 +183,7 @@ mkdir -p /opt/whisper-bridge /var/log/whisper-bridge
 chown whisper:whisper /var/log/whisper-bridge
 
 # Copy bridge script
-cp bridge.py /opt/whisper-bridge/
+cp jitsi-whisper-bridge.py /opt/whisper-bridge/
 chown -R whisper:whisper /opt/whisper-bridge
 
 # Enable and start
