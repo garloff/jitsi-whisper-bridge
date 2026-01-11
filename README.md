@@ -202,12 +202,12 @@ openssl genrsa -out whisper-private-key.pem 2048
 openssl rsa -in whisper-private-key.pem -pubout -out whisper-public-key.pem
 
 # Convert private key to PKCS8 format (required by Java)
-openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt \
-  -in whisper-private-key.pem -out whisper-private-key-pkcs8.pem
+openssl pkcs8 -topk8 -inform PEM -outform DER -nocrypt \
+  -in whisper-private-key.pem -out whisper-private-key-pkcs8.der
 
 # Base64 encode for Jigasi (single line, no wrapping)
 echo "Base64 encoded private key for Jigasi:"
-base64 -w 0 whisper-private-key-pkcs8.pem
+base64 -w 0 whisper-private-key-pkcs8.der
 echo
 ```
 ### Reverse proxy for jitsi-whisper-bridge (nginx)
