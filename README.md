@@ -280,3 +280,9 @@ server {
 But you would probably in addition require some authentication (client cert or so) to not
 expose your whisper.cpp `whisper-server` service to the world or you run it locally, in
 which case you don't need the SSL setup.
+
+## License and Copyright
+See the [LICENSE](LICENSE) file: This code is under Apache-2.0 Software License.
+Note that most of the code and also the documentation has been created in an interative
+process where I told Claude Code what I want and how it fails and how it should be
+improved.
