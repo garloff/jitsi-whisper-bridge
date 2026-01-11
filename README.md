@@ -47,11 +47,11 @@ org.jitsi.jigasi.transcription.whisper.websocket_url=wss://{{ .Env.BRIDGE_SERVER
 org.jitsi.jigasi.transcription.whisper.private_key=<PASTE_BASE64_KEY_HERE>
 org.jitsi.jigasi.transcription.whisper.private_key_name=whisper-key-1
 org.jitsi.jigasi.transcription.whisper.jwt_audience=whisper-service
-#org.jitsi.jigasi.xmpp.acc.USER_ID=transcriber@hidden.meet.jitsi
-#org.jitsi.jigasi.xmpp.acc.PASS={{ Env.TRANSCRIBER_PASSWD }}
-#org.jitsi.jigasi.xmpp.acc.ANONYMOUS_AUTH=false
+org.jitsi.jigasi.xmpp.acc.USER_ID=transcriber@hidden.meet.jitsi
+org.jitsi.jigasi.xmpp.acc.PASS={{ Env.TRANSCRIBER_PASSWD }}
+org.jitsi.jigasi.xmpp.acc.ANONYMOUS_AUTH=false
 # For testing without TLS
-#org.jitsi.jigasi.xmpp.acc.ALLOW_NON_SECURE=true
+org.jitsi.jigasi.xmpp.acc.ALLOW_NON_SECURE=true
 ```
 
 ## Jitsi bridge config
@@ -128,6 +128,7 @@ hallucination_filter:
       - "^subtitles by[\s.]*$"
       - "^www\..*\.com[\s.]*$"
       - "^off[\s.]*$"
+      - "^i'm going to go ahead and put it in the middle[\s!.]*$"
 ```
 
 ## Usage examples

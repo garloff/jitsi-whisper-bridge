@@ -72,6 +72,7 @@ DEFAULT_CONFIG = {
             'cn': [r"^谢谢[\s!.]*$", r"^多谢[\s!.]*$"],
             # Common hallucinations (all languages)
             'common': [
+                r"^i'm going to go ahead and put it in the middle[\s!.]*$",
                 r"^thanks for watching[\s!.]*$",
                 r"^please subscribe[\s!.]*$",
                 r"^like and subscribe[\s!.]*$",
