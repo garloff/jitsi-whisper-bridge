@@ -197,17 +197,18 @@ systemctl status whisper-bridge
 ## Security
 ### Keys for JWT
 ```bash
-# Generate ES256 key pair
-openssl ecparam -name prime256v1 -genkey -noout -out whisper-private-key.pem
-openssl ec -in whisper-private-key.pem -pubout -out whisper-public-key.pem
+# Generate RSA key pair
+openssl genrsa -out whisper-private-key.pem 2048
+openssl rsa -in whisper-private-key.pem -pubout -out whisper-public-key.pem
 
-# Base64 encode private key for Jigasi config
-echo "Private key for Jigasi (base64):"
-base64 -w 0 whisper-private-key.pem
-echo ""
+# Convert private key to PKCS8 format (required by Java)
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt \
+  -in whisper-private-key.pem -out whisper-private-key-pkcs8.pem
 
-# Keep whisper-public-key.pem for the bridge
-echo "Copy whisper-public-key.pem to your bridge server"
+# Base64 encode for Jigasi (single line, no wrapping)
+echo "Base64 encoded private key for Jigasi:"
+base64 -w 0 whisper-private-key-pkcs8.pem
+echo
 ```
 ### Reverse proxy for jitsi-whisper-bridge (nginx)
 ```nginx

@@ -168,7 +168,7 @@ class JWTAuthenticator:
             payload = jwt.decode(
                 token,
                 self.public_key,
-                algorithms=["ES256"],
+                algorithms=["RS256"],   # RSA 2048
                 audience=self.audience
             )
             logger.info(f"JWT verified - issuer: {payload.get('iss', 'unknown')}")
